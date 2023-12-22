@@ -59,6 +59,7 @@ public class PlayerControler : MonoBehaviour
 
         FlipedCharacter(); //Encargado de girar el personaje.
         Attack(); //Atacamos
+        Slice();
     }
 
     /// <summary>
@@ -70,6 +71,17 @@ public class PlayerControler : MonoBehaviour
         Jump(); //Movimientos verticales.
     }
 
+    public void Slice()
+    {
+        if (Input.GetButtonDown("Fire3"))
+        {
+            anim.SetBool("Slice", true);
+        }
+        else
+        {
+            anim.SetBool("Slice", false);
+        }
+    }
     public void Attack()
     {
         if (Input.GetButtonDown("Fire1"))

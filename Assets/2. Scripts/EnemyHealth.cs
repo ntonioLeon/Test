@@ -21,7 +21,9 @@ public class EnemyHealth : MonoBehaviour
 
             if (enemy.healtPoints <= 0)
             {
-                Destroy(gameObject);
+                enemy.anim.SetBool("Muerto", true);
+                ///Destroy(gameObject);
+                enemy.anim.SetBool("Muerto", false);
             }
         }
     }
