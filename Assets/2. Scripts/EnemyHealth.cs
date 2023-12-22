@@ -50,6 +50,10 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Apriori esto detecta el daño y setea la invulnerabilidad
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Damager()
     {
         recibeDanno = true;
