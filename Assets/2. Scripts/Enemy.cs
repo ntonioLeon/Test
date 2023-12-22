@@ -12,21 +12,23 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float knoclBackForceX;
     public float knoclBackForceY;
+    public float dannoInfringido;
 
 
-    public Animator anim;
+    Animator anim;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
+        
     }
 
     public void FlipedCharacter()
