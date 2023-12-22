@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 590198935}
   - component: {fileID: 590198940}
   - component: {fileID: 590198941}
+  - component: {fileID: 590198944}
   - component: {fileID: 590198939}
   - component: {fileID: 590198942}
   - component: {fileID: 590198938}
@@ -430,7 +431,7 @@ Transform:
   m_GameObject: {fileID: 590198934}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.291, y: -1.172, z: 0}
+  m_LocalPosition: {x: 1.72, y: -0.08, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -496,7 +497,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 100
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -520,6 +521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473ea6e02ae1dbb418dbf649738fcaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 2553711533634931225, guid: c36a453d38f0b3b4789e8ca2c44c0013, type: 3}
+  recibeDanno: 0
 --- !u!114 &590198940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +550,8 @@ MonoBehaviour:
   enemyName: Guts
   healtPoints: 5
   speed: 2
+  knoclBackForceX: 30
+  knoclBackForceY: 10
   anim: {fileID: 0}
 --- !u!70 &590198942
 CapsuleCollider2D:
@@ -604,6 +609,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &590198944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590198934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af1f40ab62186b4888b6d329471baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  parpadeo: {fileID: 2100000, guid: ff7c78aa27b266d46aaa2f73d5efbdf6, type: 2}
 --- !u!1 &810680639
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,8 +705,8 @@ Transform:
   m_GameObject: {fileID: 810680639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.898, y: -0.225, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -3, y: -0, z: 0}
+  m_LocalScale: {x: 2.8509, y: 2.8278, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1606346321}
@@ -707,7 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 3
-  alturaSalto: 9
+  alturaSalto: 6
   groundcheck: {fileID: 1606346321}
   estaEnElSuelo: 0
   radioDeteccion: 0.2

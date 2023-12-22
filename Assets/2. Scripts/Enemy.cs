@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     public string enemyName;
     public float healtPoints;
     public float speed;
+    public float knoclBackForceX;
+    public float knoclBackForceY;
+
 
     public Animator anim;
     Rigidbody2D rb;
