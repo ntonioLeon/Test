@@ -14,7 +14,6 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     public float velocidad, alturaSalto; //Variables que controlan la velocidad de movimiento y altura de salto del pj.
     float velX, velY; //Movimiento en los ejes x e y.
-    private float speed;
 
     /// <summary>
     /// Salto
@@ -89,13 +88,10 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetBool("Atacar", true);
-            speed = velocidad;
-            velocidad = 0f;
         }
         else
         {
             anim.SetBool("Atacar", false);
-            velocidad = speed;
         }
     }
 
@@ -138,11 +134,11 @@ public class PlayerControler : MonoBehaviour
     public void FlipedCharacter()
     {   
         //If que determina si va a la izquierda o derecha
-        if (rb.velocity.x > 0) //derecha
+        if (rb.velocity.x > 0 && !anim.GetBool("Atacar")) //derecha //al FINAL SI QUE ERA ESTO
         {
             transform.localScale = new Vector3(3, 3, 3);
         }
-        else if (rb.velocity.x < 0) //izquierda
+        else if (rb.velocity.x < 0 && !anim.GetBool("Atacar")) //izquierda
         {
             transform.localScale = new Vector3(-3, 3, 3);
         }

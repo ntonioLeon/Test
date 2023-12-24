@@ -1933,11 +1933,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3145031853206057975, guid: 51a66458ff1ae974792f35d0aa5b4c7d, type: 3}
       propertyPath: healtPoints
-      value: 1000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3145031853206057975, guid: 51a66458ff1ae974792f35d0aa5b4c7d, type: 3}
       propertyPath: dannoInfringido
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860357927881622443, guid: 51a66458ff1ae974792f35d0aa5b4c7d, type: 3}
+      propertyPath: m_Mass
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5582843538418526301, guid: 51a66458ff1ae974792f35d0aa5b4c7d, type: 3}
       propertyPath: m_LocalPosition.x
