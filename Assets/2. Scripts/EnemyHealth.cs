@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 rb.AddForce(new Vector2(enemy.knoclBackForceX, enemy.knoclBackForceY), ForceMode2D.Force);
             } 
-            else
+            else 
             {
                 rb.AddForce(new Vector2(-enemy.knoclBackForceX, enemy.knoclBackForceY), ForceMode2D.Force);
             }

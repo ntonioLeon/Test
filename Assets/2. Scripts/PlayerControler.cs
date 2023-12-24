@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
    
@@ -13,6 +14,7 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     public float velocidad, alturaSalto; //Variables que controlan la velocidad de movimiento y altura de salto del pj.
     float velX, velY; //Movimiento en los ejes x e y.
+    private float speed;
 
     /// <summary>
     /// Salto
@@ -87,10 +89,13 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetBool("Atacar", true);
+            speed = velocidad;
+            velocidad = 0f;
         }
         else
         {
             anim.SetBool("Atacar", false);
+            velocidad = speed;
         }
     }
 
@@ -105,7 +110,7 @@ public class PlayerControler : MonoBehaviour
         rb.velocity = new Vector2(velX * velocidad, velY); //Crea un nuevo vector con el movimiento asignado por el input.
 
         //If para cambiar de animacion si se mueve en horizontal.
-        if (rb.velocity.x != 0) 
+        if (rb.velocity.x != 0 && !anim.GetBool("Atacar")) 
         {
             anim.SetBool("Correr", true); //Corre.
         } 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// /ESTO ESTA MAL PRODUCE FALLOS
@@ -9,6 +10,7 @@ public class PlayerHealt : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+    public Image healthImage;
     bool isInmune;
     public float inmunerableTime;
     Blick material;
@@ -30,6 +32,7 @@ public class PlayerHealt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthImage.fillAmount = health / 100;
         if (health > maxHealth) 
         { 
             health= maxHealth;
