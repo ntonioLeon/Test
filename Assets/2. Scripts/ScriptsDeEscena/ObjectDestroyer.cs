@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectDestroyer : MonoBehaviour
 {
     public float segundos;
+
     // Start is called before the first frame update
     void Start()
     {

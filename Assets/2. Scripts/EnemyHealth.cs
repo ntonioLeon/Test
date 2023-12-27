@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 
-                Destroy(gameObject);;
+                Destroy(gameObject);
             }
         }
     }

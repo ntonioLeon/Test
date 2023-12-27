@@ -18,6 +18,7 @@ public class PlayerHealt : MonoBehaviour
     Rigidbody2D rb;
     public float knockBackX;
     public float knockBackY;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class PlayerHealt : MonoBehaviour
         material = GetComponent<Blick>();
         health = maxHealth;
         material.original = sprite.material;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,7 +61,7 @@ public class PlayerHealt : MonoBehaviour
             
             if (health <= 0) 
             {
-                //Estoy muerto
+                StartCoroutine(Morirse());
             }
         }
     }
@@ -70,5 +72,14 @@ public class PlayerHealt : MonoBehaviour
         yield return new WaitForSeconds(inmunerableTime);
         sprite.material = material.original;
         isInmune = false;
+    }
+
+
+
+    IEnumerator Morirse()
+    {
+        anim.SetBool("Muerte", true);
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }

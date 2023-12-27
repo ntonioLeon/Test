@@ -30,17 +30,4 @@ public class Enemy : MonoBehaviour
     {
         
     }
-
-    public void FlipedCharacter()
-    {
-        //If que determina si va a la izquierda o derecha
-        if (rb.velocity.x > 0) //derecha
-        {
-            transform.localScale = new Vector3(3, 3, 3);
-        }
-        else if (rb.velocity.x < 0) //izquierda
-        {
-            transform.localScale = new Vector3(-3, 3, 3);
-        }
-    }
 }
