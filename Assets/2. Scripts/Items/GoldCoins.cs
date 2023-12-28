@@ -2,29 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potions : MonoBehaviour
-
+public class GoldCoins : MonoBehaviour
 {
-    public float vidaRecibida;
+    public int dineroAGanar;
     private bool tomado;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !tomado) 
-        { 
+        {
             tomado = true;
-            collision.GetComponent<PlayerHealt>().health+= vidaRecibida;
+            BankAccount.instance.Money(dineroAGanar);
             Destroy(gameObject);
         }
     }
-
-
-
-
-
-
-
-
-
 
 
     // Start is called before the first frame update

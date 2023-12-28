@@ -2,30 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potions : MonoBehaviour
-
+public class SubItem : MonoBehaviour
 {
-    public float vidaRecibida;
-    private bool tomado;
+
+    public int subItemsRecibes;
+    private bool tomado; 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !tomado) 
-        { 
+        if (collision.CompareTag("Player") && !tomado)
+        {
             tomado = true;
-            collision.GetComponent<PlayerHealt>().health+= vidaRecibida;
+            SubItems.instance.Abastecimiento(subItemsRecibes);
             Destroy(gameObject);
         }
     }
-
-
-
-
-
-
-
-
-
-
 
     // Start is called before the first frame update
     void Start()
