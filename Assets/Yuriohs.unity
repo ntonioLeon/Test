@@ -1023,6 +1023,7 @@ GameObject:
   - component: {fileID: 810680647}
   - component: {fileID: 810680646}
   - component: {fileID: 810680648}
+  - component: {fileID: 810680649}
   m_Layer: 8
   m_Name: Caballero
   m_TagString: Player
@@ -1279,6 +1280,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   parpadeo: {fileID: 2100000, guid: ff7c78aa27b266d46aaa2f73d5efbdf6, type: 2}
+--- !u!114 &810680649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810680639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bf1549e9e25ea4c83a1523037dd43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costeArma: 5
+  proyectil: {fileID: 3674584746556041454, guid: ca4e4f1efdd163a4293936636d555fe4, type: 3}
+  velocidadProyectil: 1000
 --- !u!1 &913286505
 GameObject:
   m_ObjectHideFlags: 0
