@@ -31,12 +31,12 @@ public class PlayerSubWeapon : MonoBehaviour
             if (transform.localScale.x < 0)
             {
                 disparo.GetComponent<Rigidbody2D>().AddForce(new Vector2(-velocidadProyectil, 0f), ForceMode2D.Force);
-                disparo.transform.localScale = new Vector2(-1, -1);
+                disparo.transform.localScale = new Vector2(-2, -2);
             }
             else 
             {
                 disparo.GetComponent<Rigidbody2D>().AddForce(new Vector2(velocidadProyectil, 0f), ForceMode2D.Force);
-                disparo.transform.localScale = new Vector2(1, 1);
+                disparo.transform.localScale = new Vector2(2, 2);
             }
         }
     }

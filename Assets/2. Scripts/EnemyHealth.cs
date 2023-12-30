@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.CompareTag("Weapon") && !recibeDanno)
         {
-            enemy.healtPoints -= 2f;
+            enemy.healtPoints -= 1f;
 
             if (collision.transform.position.x < transform.position.x)
             {
