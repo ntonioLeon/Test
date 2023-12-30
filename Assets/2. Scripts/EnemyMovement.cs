@@ -73,10 +73,10 @@ public class EnemyMovement : MonoBehaviour
 
             if (andaIzquierda)
             {
-                rb.velocity = new Vector2(-speed * Time.deltaTime, rb.velocity.y);
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
             } else
             {
-                rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
+                rb.velocity = new Vector2(speed, rb.velocity.y);
             }
         }
 
@@ -128,16 +128,20 @@ public class EnemyMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (andaIzquierda)
+        if (sueloDetectado) 
         {
-            andaIzquierda = false;
-            transform.localScale = new Vector3(3, 3, 3);
+            if (andaIzquierda)
+            {
+                andaIzquierda = false;
+                transform.localScale = new Vector3(3, 3, 3);
+            }
+            else
+            {
+                andaIzquierda = true;
+                transform.localScale = new Vector3(-3, 3, 3);
+            }
         }
-        else
-        {
-            andaIzquierda = true;
-            transform.localScale = new Vector3(-3, 3, 3); ;
-        }
+       
     }
 
     private void OnDrawGizmos()
@@ -150,6 +154,7 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator Esperar()
     {
         anim.SetBool("Moverse", false);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         estaEsperando = true;
         for (int i = 0; i < tiempoQueEspera; i++)
         {
@@ -161,6 +166,7 @@ public class EnemyMovement : MonoBehaviour
             Flip();
         }
         estaEsperando = false;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         anim.SetBool("Moverse", true);
     }
 }
