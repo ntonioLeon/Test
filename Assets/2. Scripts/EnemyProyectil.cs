@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class EnemyProyectil : MonoBehaviour
 {
     public GameObject proyectil;
     public float tiempoParaDisparar;
     public float shootCooldown;
+    public float shootSpeed;
+    public float fixHigh;
 
     public bool disparoConstante;
     public bool watcher;
@@ -40,13 +43,17 @@ public class EnemyProyectil : MonoBehaviour
     {
         GameObject gameObject = Instantiate(proyectil, transform.position, Quaternion.identity); //Para cambiar el nacimiento cambiar el transform.
 
+        Vector3 nuevaPosicion = gameObject.transform.position;
+        nuevaPosicion.y += fixHigh;
+        gameObject.transform.position = nuevaPosicion;
+
         if (transform.localScale.x > 0)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(300f, 0), ForceMode2D.Force);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(shootSpeed, 0), ForceMode2D.Force);
         }
         else
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-300f, 0), ForceMode2D.Force);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-shootSpeed, 0), ForceMode2D.Force);
         }
 
         shootCooldown = tiempoParaDisparar;
