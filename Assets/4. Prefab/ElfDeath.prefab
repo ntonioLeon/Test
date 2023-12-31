@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 221963473592467305}
   - component: {fileID: 3352231536924234481}
   - component: {fileID: 5520530572895965123}
+  - component: {fileID: 524184903863695761}
   m_Layer: 0
   m_Name: ElfDeath
   m_TagString: Untagged
@@ -106,3 +107,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &524184903863695761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918326185380257803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be9f3ff914814443bee9939cb37feeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  segundos: 1.2
