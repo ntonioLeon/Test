@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4043509954310940b4e77404125f27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subItemsRecibes: 69
+  subItemsRecibes: 5

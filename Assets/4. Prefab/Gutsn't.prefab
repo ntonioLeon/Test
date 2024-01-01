@@ -104,11 +104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Guts
-  healtPoints: 5
+  healtPoints: 1
   speed: 2
   knoclBackForceX: 30
   knoclBackForceY: 10
   dannoInfringido: 0
+  expToGive: 20
 --- !u!114 &2732352611678247338
 MonoBehaviour:
   m_ObjectHideFlags: 0

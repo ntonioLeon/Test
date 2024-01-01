@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float knoclBackForceX;
     public float knoclBackForceY;
     public float dannoInfringido;
+    public float expToGive;
 
 
     Animator anim;

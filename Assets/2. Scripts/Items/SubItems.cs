@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class SubItems : MonoBehaviour
 {
     public Text SubItemsText;
+    public int maxTotal;
     public int total;
+    
 
     public static SubItems instance;
 
@@ -20,7 +22,12 @@ public class SubItems : MonoBehaviour
     public void Abastecimiento(int cantidadRecibida) 
     {
         total += cantidadRecibida;
+        if (total > maxTotal) 
+        {
+            total = maxTotal;
+        }
         SubItemsText.text = total.ToString();
+
     }
 
     // Start is called before the first frame update

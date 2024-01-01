@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     SpriteRenderer render;
     Blick material;
     Rigidbody2D rb;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
             if (enemy.healtPoints <= 0)
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
-                
+                Experience.instance.ExpModifier(GetComponent<Enemy>().expToGive);
                 Destroy(gameObject);
             }
         }

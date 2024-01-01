@@ -20,6 +20,16 @@ public class PlayerHealt : MonoBehaviour
     public float knockBackY;
     Animator anim;
 
+    public static PlayerHealt instance;
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +44,7 @@ public class PlayerHealt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthImage.fillAmount = health / 100;
+        healthImage.fillAmount = health / maxHealth;
         if (health > maxHealth) 
         { 
             health= maxHealth;
