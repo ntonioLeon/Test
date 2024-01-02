@@ -12,7 +12,7 @@ public class PlayerControler : MonoBehaviour
     /// <summary>
     /// Velocidad y movimiento
     /// </summary>
-    public float velocidad, alturaSalto, velocidadBase; //Variables que controlan la velocidad de movimiento y altura de salto del pj.
+    public float velocidad, alturaSalto; //Variables que controlan la velocidad de movimiento y altura de salto del pj.
     float velX, velY; //Movimiento en los ejes x e y.
 
     /// <summary>
@@ -22,6 +22,7 @@ public class PlayerControler : MonoBehaviour
     public bool estaEnElSuelo;  //Bool referido a si el personaje esta en el suelo.
     public float radioDeteccion; //Radio del personaje que deteca si toca el suelo.
     public LayerMask queEsSuelo; //Layer que simboliza el suelo.
+    public bool movimientoBloqueado=false; 
 
     /// <summary>
     /// Objetos
@@ -45,7 +46,6 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     void Start()
     {
-        velocidadBase = velocidad;
         rb = GetComponent<Rigidbody2D>(); //Inicializamos las variables.
         anim = GetComponent<Animator>();
     }
@@ -112,10 +112,18 @@ public class PlayerControler : MonoBehaviour
     public void Movement()
     {
         velX = Input.GetAxisRaw("Horizontal");  //Esto identifica el imput del las flechas.
-        velY = rb.velocity.y;                    
+        velY = rb.velocity.y;
+
         if (velocidad != 0)
         {
-            rb.velocity = new Vector2(velX * velocidad, velY); //Crea un nuevo vector con el movimiento asignado por el input.
+            if (!movimientoBloqueado)
+            {
+                rb.velocity = new Vector2(velX * velocidad, velY);
+            }
+            else
+            {
+                rb.velocity = new Vector2(0, 0);
+            }
 
             //If para cambiar de animacion si se mueve en horizontal.
             if (rb.velocity.x != 0 && !anim.GetBool("Atacar"))
@@ -126,7 +134,7 @@ public class PlayerControler : MonoBehaviour
             {
                 anim.SetBool("Correr", false); //No corre.
             }
-        }        
+        }
     }
 
     /// <summary>
@@ -135,7 +143,7 @@ public class PlayerControler : MonoBehaviour
     public void Jump()
     {
         //Si esta en el suelo y se ha pulsado espacio
-        if (Input.GetButton("Jump") && estaEnElSuelo) 
+        if (Input.GetButton("Jump") && estaEnElSuelo && !movimientoBloqueado) 
         {
             rb.velocity = new Vector2(rb.velocity.x, alturaSalto);  //Desplazamiento vertical
         } 
@@ -156,9 +164,8 @@ public class PlayerControler : MonoBehaviour
             transform.localScale = new Vector3(-3, 3, 3);
         }
     }
-
-    public void freeze(float speed)
+    public void Modificador(float speed)
     {
-        velocidad = speed;    
+        velocidad = speed;
     }
 }

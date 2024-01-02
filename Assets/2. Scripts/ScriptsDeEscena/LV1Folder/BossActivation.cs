@@ -10,28 +10,21 @@ public class BossActivation : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             BossUI.instance.BossActivation();
-            StartCoroutine(esperarBoss());
+            StartCoroutine(Espera());
         } 
     }
-
-    IEnumerator esperarBoss()
+    IEnumerator Espera()
     {
-        /*PlayerControler.instance.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        PlayerControler.instance.GetComponent<Animator>().SetBool("Correr", false);
-        if (Input.GetAxisRaw("Horizontal") != 0) 
-        {
-            PlayerControler.instance.GetComponent<Animator>().SetBool("Correr", false);
-        }
-        PlayerControler.instance.GetComponent<Animator>().SetBool("Correr", false);
+        var currSpeed = PlayerControler.instance.velocidad;
+        Debug.Log("Deberia estar esperando");
+        PlayerControler.instance.movimientoBloqueado = true;
+        PlayerControler.instance.Modificador(0);
         yield return new WaitForSeconds(3f);
-        PlayerControler.instance.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-        PlayerControler.instance.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;*/
-        PlayerControler.instance.velocidad = 0;
-        yield return new WaitForSeconds(3f);
-        PlayerControler.instance.velocidad = PlayerControler.instance.velocidadBase;
+        PlayerControler.instance.movimientoBloqueado = false;
+        PlayerControler.instance.Modificador(currSpeed);
         Destroy(gameObject);
+        Debug.Log("He terminado de esperar");
     }
-
 
     // Start is called before the first frame update
     void Start()
