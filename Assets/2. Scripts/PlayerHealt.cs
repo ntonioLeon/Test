@@ -79,6 +79,7 @@ public class PlayerHealt : MonoBehaviour
     {
         isInmune = true;
         sprite.material = material.parpadeo;
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.bump);
         yield return new WaitForSeconds(inmunerableTime);
         sprite.material = material.original;
         isInmune = false;
@@ -89,6 +90,7 @@ public class PlayerHealt : MonoBehaviour
     IEnumerator Morirse()
     {
         anim.SetBool("Muerte", true);
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.deathPlayer);
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

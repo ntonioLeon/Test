@@ -31,7 +31,7 @@ public class Ojos : MonoBehaviour
             // Mira a la izquierda
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.fireball);
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
     }
 

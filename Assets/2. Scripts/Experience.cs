@@ -49,6 +49,7 @@ public class Experience : MonoBehaviour
             PlayerHealt.instance.maxHealth += incrementoVida;
             PlayerHealt.instance.health = PlayerHealt.instance.maxHealth * vida;
             SubItems.instance.maxTotal += incrementoItems;
+            AudioMannager.instance.PlayAudio(AudioMannager.instance.lvlUP);
             lvl++;
             textLvl.text = lvl.ToString();
         }

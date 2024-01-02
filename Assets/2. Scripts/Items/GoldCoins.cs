@@ -14,6 +14,7 @@ public class GoldCoins : MonoBehaviour
         {
             tomado = true;
             BankAccount.instance.Money(dineroAGanar);
+            AudioMannager.instance.PlayAudio(AudioMannager.instance.coin);
             Destroy(gameObject);
         }
     }

@@ -44,6 +44,7 @@ public class BossUI : MonoBehaviour
         var currSpeed = PlayerControler.instance.velocidad;
         PlayerControler.instance.movimientoBloqueado = true;
         PlayerControler.instance.Modificador(0);
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.deathBoss);
         yield return new WaitForSeconds(5f);
         PlayerControler.instance.movimientoBloqueado = false;
         PlayerControler.instance.Modificador(currSpeed);
