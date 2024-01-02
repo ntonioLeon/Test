@@ -12,7 +12,7 @@ public class PlayerControler : MonoBehaviour
     /// <summary>
     /// Velocidad y movimiento
     /// </summary>
-    public float velocidad, alturaSalto; //Variables que controlan la velocidad de movimiento y altura de salto del pj.
+    public float velocidad, alturaSalto, velocidadBase; //Variables que controlan la velocidad de movimiento y altura de salto del pj.
     float velX, velY; //Movimiento en los ejes x e y.
 
     /// <summary>
@@ -29,12 +29,23 @@ public class PlayerControler : MonoBehaviour
     Rigidbody2D rb;  //Espacio fisico que ocupa el personaje.
     Animator anim; //Objeto que realiza las transiciones de animaciones.
 
+    public static PlayerControler instance;
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     /// <summary>
     /// Start is called before the first frame update .
     /// Metodo que se lanza al iniciar el juego, debe tener e inicializar las variables y otros necesarios.
     /// </summary>
     void Start()
     {
+        velocidadBase = velocidad;
         rb = GetComponent<Rigidbody2D>(); //Inicializamos las variables.
         anim = GetComponent<Animator>();
     }
@@ -102,18 +113,20 @@ public class PlayerControler : MonoBehaviour
     {
         velX = Input.GetAxisRaw("Horizontal");  //Esto identifica el imput del las flechas.
         velY = rb.velocity.y;                    
-
-        rb.velocity = new Vector2(velX * velocidad, velY); //Crea un nuevo vector con el movimiento asignado por el input.
-
-        //If para cambiar de animacion si se mueve en horizontal.
-        if (rb.velocity.x != 0 && !anim.GetBool("Atacar")) 
+        if (velocidad != 0)
         {
-            anim.SetBool("Correr", true); //Corre.
-        } 
-        else
-        {
-            anim.SetBool("Correr", false); //No corre.
-        }
+            rb.velocity = new Vector2(velX * velocidad, velY); //Crea un nuevo vector con el movimiento asignado por el input.
+
+            //If para cambiar de animacion si se mueve en horizontal.
+            if (rb.velocity.x != 0 && !anim.GetBool("Atacar"))
+            {
+                anim.SetBool("Correr", true); //Corre.
+            }
+            else
+            {
+                anim.SetBool("Correr", false); //No corre.
+            }
+        }        
     }
 
     /// <summary>
@@ -142,5 +155,10 @@ public class PlayerControler : MonoBehaviour
         {
             transform.localScale = new Vector3(-3, 3, 3);
         }
+    }
+
+    public void freeze(float speed)
+    {
+        velocidad = speed;    
     }
 }
