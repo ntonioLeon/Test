@@ -17,7 +17,21 @@ public class Ojos : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = PlayerControler.instance;
 
-        moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
+        Vector2 adjustedTargetPosition = target.transform.position - new Vector3(0f, 0.5f, 0f);
+
+        moveDirection = (adjustedTargetPosition - (Vector2)transform.position).normalized * moveSpeed;
+
+        if (moveDirection.x < 0)
+        {
+            // Mira a la derecha
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            // Mira a la izquierda
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
     }
 

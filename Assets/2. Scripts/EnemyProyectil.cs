@@ -41,7 +41,7 @@ public class EnemyProyectil : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject gameObject = Instantiate(proyectil, transform.position, Quaternion.identity); //Para cambiar el nacimiento cambiar el transform.
+        GameObject gameObject = Instantiate(proyectil, transform.position, Quaternion.identity);
 
         Vector3 nuevaPosicion = gameObject.transform.position;
         nuevaPosicion.y += fixHigh;

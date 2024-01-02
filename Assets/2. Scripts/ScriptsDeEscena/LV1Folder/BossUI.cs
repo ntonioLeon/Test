@@ -42,13 +42,11 @@ public class BossUI : MonoBehaviour
     IEnumerator BossDefeat()
     {
         var currSpeed = PlayerControler.instance.velocidad;
-        //Debug.Log("Deberia estar esperando");
         PlayerControler.instance.movimientoBloqueado = true;
         PlayerControler.instance.Modificador(0);
         yield return new WaitForSeconds(5f);
         PlayerControler.instance.movimientoBloqueado = false;
         PlayerControler.instance.Modificador(currSpeed);
         Destroy(gameObject);
-        //Debug.Log("He terminado de esperar");
     }
 }
