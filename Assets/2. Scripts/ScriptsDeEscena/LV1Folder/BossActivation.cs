@@ -11,6 +11,8 @@ public class BossActivation : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             BossUI.instance.BossActivation();
+            AudioMannager.instance.background.Stop();
+            AudioMannager.instance.PlayAudio(AudioMannager.instance.backgroundFight);
             StartCoroutine(Espera());
         } 
     }

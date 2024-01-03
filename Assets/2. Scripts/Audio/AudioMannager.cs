@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class AudioMannager : MonoBehaviour
 {
     public AudioMixer musicMix, effectsMix;
-    public AudioSource background, coin, bump, deathBoss, deathPlayer, fireball, lvlUP;
+    public AudioSource background, backgroundFight, coin, bump, deathBoss, deathPlayer, fireball, lvlUP;
     [Range(-80, -10)]
     public float musicVol, effectsVol;
     public Slider musicSli, effectsSli; 
@@ -25,7 +25,7 @@ public class AudioMannager : MonoBehaviour
     void Start()
     {
         PlayAudio(background);
-        
+
         musicSli.minValue = -80;
         musicSli.maxValue = -10;
 

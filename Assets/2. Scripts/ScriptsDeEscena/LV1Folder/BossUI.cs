@@ -7,6 +7,7 @@ public class BossUI : MonoBehaviour
 {
     public GameObject bossPanel;
     public GameObject muros;
+    public Image lifeBar;
 
     public static BossUI instance;
 
@@ -34,9 +35,9 @@ public class BossUI : MonoBehaviour
 
     public void bossDesactivator()
     {
-        bossPanel.SetActive(false);
         muros.SetActive(false);
         StartCoroutine(BossDefeat());
+        bossPanel.SetActive(false);
     }
 
     IEnumerator BossDefeat()
@@ -45,9 +46,12 @@ public class BossUI : MonoBehaviour
         PlayerControler.instance.movimientoBloqueado = true;
         PlayerControler.instance.Modificador(0);
         AudioMannager.instance.PlayAudio(AudioMannager.instance.deathBoss);
+        lifeBar.fillAmount = 0;
         yield return new WaitForSeconds(5f);
         PlayerControler.instance.movimientoBloqueado = false;
         PlayerControler.instance.Modificador(currSpeed);
-        Destroy(gameObject);
+        Destroy(bossPanel);
+        AudioMannager.instance.backgroundFight.Stop();
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.background);
     }
 }

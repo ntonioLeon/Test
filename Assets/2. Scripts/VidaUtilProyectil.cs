@@ -8,7 +8,7 @@ public class VidaUtilProyectil : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy")) 
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Suelos")) 
         {
             //Efectos adicionales aqui. 
             Destroy(gameObject);

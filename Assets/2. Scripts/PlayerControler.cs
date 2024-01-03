@@ -122,7 +122,7 @@ public class PlayerControler : MonoBehaviour
             }
             else
             {
-                rb.velocity = new Vector2(0, 0);
+                rb.velocity = new Vector2(0, velY);
             }
 
             //If para cambiar de animacion si se mueve en horizontal.

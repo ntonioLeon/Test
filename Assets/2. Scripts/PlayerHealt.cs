@@ -20,6 +20,8 @@ public class PlayerHealt : MonoBehaviour
     public float knockBackY;
     Animator anim;
 
+    public GameObject gameOverImage;
+
     public static PlayerHealt instance;
 
     public void Awake()
@@ -33,6 +35,7 @@ public class PlayerHealt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOverImage.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         material = GetComponent<Blick>();
@@ -49,8 +52,6 @@ public class PlayerHealt : MonoBehaviour
         { 
             health= maxHealth;
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -92,6 +93,12 @@ public class PlayerHealt : MonoBehaviour
         anim.SetBool("Muerte", true);
         AudioMannager.instance.PlayAudio(AudioMannager.instance.deathPlayer);
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+
+        AudioMannager.instance.backgroundFight.Stop();
+        AudioMannager.instance.background.Stop();
+        Time.timeScale = 0;
+        gameOverImage.SetActive(true);
+        
     }
+
 }

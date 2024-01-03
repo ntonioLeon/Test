@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PuaseMenu : MonoBehaviour
 {
     public GameObject pause;
-    bool isPaused;
+    public bool isPaused;
 
     // Awake is called before the first frame update
     void Awake()
