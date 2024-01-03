@@ -3476,6 +3476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToRespawn: 5
   enemyToRespawn: {fileID: 1874407557}
+  isRespawning: 0
 --- !u!1001 &390953321
 PrefabInstance:
   m_ObjectHideFlags: 0
