@@ -3429,6 +3429,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &372293272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372293273}
+  - component: {fileID: 372293274}
+  m_Layer: 0
+  m_Name: Elfos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &372293273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372293272}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1874407559}
+  m_Father: {fileID: 1077431849}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &372293274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372293272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375bcf9d02f72ab42a1eadfadfc6b324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRespawn: 5
+  enemyToRespawn: {fileID: 1874407557}
 --- !u!1001 &390953321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4408,6 +4455,7 @@ MonoBehaviour:
   deathEffect: {fileID: 7000570122927424576, guid: 0c73986fd7751bc4485898e9420e857b, type: 3}
   recibeDanno: 0
   rb: {fileID: 531644543}
+  originalHealth: 0
 --- !u!114 &531644545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4427,6 +4475,7 @@ MonoBehaviour:
   knoclBackForceY: 0
   dannoInfringido: 5
   expToGive: 100
+  shouldRespawn: 0
 --- !u!95 &531644546
 Animator:
   serializedVersion: 5
@@ -6722,7 +6771,7 @@ Transform:
   m_Children:
   - {fileID: 1280922073}
   - {fileID: 1325522197}
-  - {fileID: 1874407559}
+  - {fileID: 372293273}
   m_Father: {fileID: 945748648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1083048657
@@ -11794,7 +11843,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1077431849}
+    m_TransformParent: {fileID: 372293273}
     m_Modifications:
     - target: {fileID: 85571849974461211, guid: c86c157fbff37ae4a871844ad64cbc81, type: 3}
       propertyPath: m_Name
@@ -11826,6 +11875,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353619368319559578, guid: c86c157fbff37ae4a871844ad64cbc81, type: 3}
       propertyPath: healtPoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353619368319559578, guid: c86c157fbff37ae4a871844ad64cbc81, type: 3}
+      propertyPath: shouldRespawn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4353619368319559578, guid: c86c157fbff37ae4a871844ad64cbc81, type: 3}

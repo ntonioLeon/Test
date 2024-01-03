@@ -12,16 +12,20 @@ public class EnemyHealth : MonoBehaviour
     SpriteRenderer render;
     Blick material;
     public Rigidbody2D rb;
+
+    public float originalHealth;
     
 
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         enemy = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
 
         render = GetComponent<SpriteRenderer>();
         material = GetComponent<Blick>();
+
+        originalHealth = enemy.healtPoints;
     }
 
     // Update is called once per frame
@@ -46,7 +50,15 @@ public class EnemyHealth : MonoBehaviour
             {
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
                 Experience.instance.ExpModifier(GetComponent<Enemy>().expToGive);
-                Destroy(gameObject);
+
+                if (enemy.shouldRespawn)
+                {
+                    transform.GetComponentInParent<EnemyRespawn>().StartCoroutine(GetComponentInParent<EnemyRespawn>().RespawnEnemy());
+                } 
+                else 
+                {
+                    Destroy(gameObject);
+                }                
             }
         }
     }
