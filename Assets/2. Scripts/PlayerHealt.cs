@@ -91,7 +91,7 @@ public class PlayerHealt : MonoBehaviour
     IEnumerator Morirse()
     {
         anim.SetBool("Muerte", true);
-        AudioMannager.instance.PlayAudio(AudioMannager.instance.deathPlayer);
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.risa);
         yield return new WaitForSeconds(1f);
 
         AudioMannager.instance.backgroundFight.Stop();

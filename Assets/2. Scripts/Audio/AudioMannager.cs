@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class AudioMannager : MonoBehaviour
 {
     public AudioMixer musicMix, effectsMix;
-    public AudioSource background, backgroundFight, coin, bump, deathBoss, deathPlayer, fireball, lvlUP;
+    public AudioSource background, bossApear, risa, mainMenu, backgroundFight, coin, bump, deathBoss, deathPlayer, fireball, lvlUP;
     [Range(-80, -10)]
     public float musicVol, effectsVol;
     public Slider musicSli, effectsSli; 
@@ -24,7 +24,7 @@ public class AudioMannager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayAudio(background);
+        //PlayAudio(background);
 
         musicSli.minValue = -80;
         musicSli.maxValue = -10;
@@ -32,23 +32,34 @@ public class AudioMannager : MonoBehaviour
         effectsSli.minValue = -80;
         effectsSli.maxValue = 10;
 
-        musicSli.value = -40;
-        effectsSli.value = -20;
+        //musicSli.value = -40;
+        //effectsSli.value = -20;
+
+        musicSli.value = PlayerPrefs.GetFloat("musica", -50f);
+        effectsSli.value = PlayerPrefs.GetFloat("effectsVolume", -20f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        MasterVol();
-        EffectsVol();
+        DataMannager.instance.MusicData(musicSli.value);
+        musicMix.SetFloat("MixVol", PlayerPrefs.GetFloat("musica"));
+
+        //MasterVol();
+        //EffectsVol();
     }
     public void MasterVol()
     {
-        musicMix.SetFloat("masterVolume", musicSli.value);
+        //TPM
+        //DataMannager.instance.MusicData(musicSli.value);
+        //musicMix.SetFloat("MixVol", PlayerPrefs.GetFloat("musica"));
+        //MixVol;
     }
     public void EffectsVol()
     {
-        effectsMix.SetFloat("effectsVolume", effectsSli.value);
+        DataMannager.instance.EffectsMusicData(effectsSli.value);
+        effectsMix.SetFloat("effectsVolume", PlayerPrefs.GetFloat("effectsVolume"));
+        
     }
     public void PlayAudio(AudioSource audio)
     {

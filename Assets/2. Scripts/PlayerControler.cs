@@ -46,8 +46,10 @@ public class PlayerControler : MonoBehaviour
     /// </summary>
     void Start()
     {
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.background);
         rb = GetComponent<Rigidbody2D>(); //Inicializamos las variables.
         anim = GetComponent<Animator>();
+        Experience.instance.DataToLoad();
     }
 
     /// <summary>

@@ -18,6 +18,7 @@ public class BossActivation : MonoBehaviour
     }
     IEnumerator Espera()
     {
+        AudioMannager.instance.PlayAudio(AudioMannager.instance.bossApear);
         var currSpeed = PlayerControler.instance.velocidad;
         PlayerControler.instance.movimientoBloqueado = true;
         PlayerControler.instance.Modificador(0);
