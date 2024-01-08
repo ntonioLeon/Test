@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 9141243260715431774}
   - component: {fileID: 6474816289596382668}
   - component: {fileID: 2328287121357858077}
+  - component: {fileID: 2344000800058945283}
+  - component: {fileID: 1003819464860776021}
   m_Layer: 12
   m_Name: Brujo
   m_TagString: Enemy
@@ -189,3 +191,35 @@ MonoBehaviour:
   knoclBackForceX: 10
   knoclBackForceY: 10
   dannoInfringido: 20
+  expToGive: 0
+  shouldRespawn: 0
+--- !u!114 &2344000800058945283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527998673462506243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473ea6e02ae1dbb418dbf649738fcaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEffect: {fileID: 7000570122927424576, guid: 0c73986fd7751bc4485898e9420e857b, type: 3}
+  recibeDanno: 0
+  rb: {fileID: 9141243260715431774}
+  originalHealth: 5
+--- !u!114 &1003819464860776021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527998673462506243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9af1f40ab62186b4888b6d329471baa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  parpadeo: {fileID: 2100000, guid: ff7c78aa27b266d46aaa2f73d5efbdf6, type: 2}
