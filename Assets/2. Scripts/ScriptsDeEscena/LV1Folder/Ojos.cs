@@ -16,8 +16,9 @@ public class Ojos : MonoBehaviour
         moveSpeed = GetComponent<Enemy>().speed;
         rb = GetComponent<Rigidbody2D>();
         target = PlayerControler.instance;
+        //Vector2 malo = GetComponent<BossBehavior>().transform.position;
 
-        Vector2 adjustedTargetPosition = target.transform.position - new Vector3(0f, 0.5f, 0f);
+        Vector2 adjustedTargetPosition = target.transform.position - new Vector3(0f, 0.5f, 0);
 
         moveDirection = (adjustedTargetPosition - (Vector2)transform.position).normalized * moveSpeed;
 
@@ -34,7 +35,13 @@ public class Ojos : MonoBehaviour
         AudioMannager.instance.PlayAudio(AudioMannager.instance.fireball);
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") || collision.CompareTag("Suelos")) 
+        {
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {

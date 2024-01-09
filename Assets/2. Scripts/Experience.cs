@@ -65,26 +65,22 @@ public class Experience : MonoBehaviour
     {
         if (DataMannager.instance != null)
         {
-            Debug.Log("Llamada");
+
             DataMannager.instance.Experience(currentExp);
-            Debug.Log("1");
             DataMannager.instance.Level(lvl);
-            Debug.Log("2");
             DataMannager.instance.ExpTNL(expTNL);
-            Debug.Log("EXP");
             DataMannager.instance.CurrentSubItem(SubItems.instance.total);
             DataMannager.instance.MaxSubItem(SubItems.instance.maxTotal);
             DataMannager.instance.CurrentCoins(BankAccount.instance.bank);
-            Debug.Log("Items");
             DataMannager.instance.MaxHealth(PlayerHealt.instance.maxHealth);
             DataMannager.instance.CurrentHealth(PlayerHealt.instance.health);
-            Debug.Log("VIDA");
+ 
             DataMannager.instance.CuurrentPosition(PlayerControler.instance.transform.position);
 
         }
         else
         {
-            Debug.LogError("DataMannager.instance is null");
+            Debug.LogError("Fallo al guaradar");
         }
        
 

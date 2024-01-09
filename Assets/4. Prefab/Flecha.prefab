@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7171681649355212624}
   - component: {fileID: 4369260376077107887}
   - component: {fileID: 2510381776107459545}
+  - component: {fileID: -4042357974693889584}
   m_Layer: 12
   m_Name: Flecha
   m_TagString: Enemy
@@ -202,8 +203,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: 
-  healtPoints: 0
+  healtPoints: 1
   speed: 0
   knoclBackForceX: 3
   knoclBackForceY: 3
   dannoInfringido: 15
+  expToGive: 0
+  shouldRespawn: 0
+--- !u!114 &-4042357974693889584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8773922052229260086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473ea6e02ae1dbb418dbf649738fcaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEffect: {fileID: 7000570122927424576, guid: 0c73986fd7751bc4485898e9420e857b, type: 3}
+  recibeDanno: 0
+  rb: {fileID: 0}
+  originalHealth: 1

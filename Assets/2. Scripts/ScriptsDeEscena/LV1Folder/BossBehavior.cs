@@ -53,7 +53,7 @@ public class BossBehavior : MonoBehaviour
     }
 
     public void shootPlayer()
-    {        
+    {
         GameObject spell = Instantiate(ojos, transform.position, Quaternion.identity);
     }
 
