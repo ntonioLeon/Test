@@ -1,0 +1,64 @@
+Fallos Actuales>>
+
+	-Desarrollo del nivel 1 actual.
+
+	-Arma kinestetica:
+		->Eliminar movimiento al atacar.
+		->Eliminar colisiones "fortuitas" al atacar: Impedir estaquear jump+attack para escalar muros.
+
+	-Solucionar problemas de Knockback.
+
+	-Historia que cuente algo.
+
+--------------------------------------->>Fallos Actuales
+
+Posible>>
+
+	-Completion List: Idea de añadir estadísticas. Por ejem.-> Yakuza Completion List.
+
+	-Agregar enemigos tras ataque a distancia: Posibilidad de atraer enimigos tras un ataque a distancia.
+
+	-TP entre hogueras: Teletransporte entre hogueras. Por ejem.-> Blasphemus.
+
+	-Gestión de archivo de guardado:
+		->Reset
+		->Clear
+		->Save
+	-Stamina: gestion de estamina-> Dash invulnerable
+	
+	-Mecanicas de Manolo
+		->Por ejem. LostArk. Cristales y auras.
+		->Eliminacion de terreno en funcion de la vida.
+		->Fase Rage-> attack script.
+	
+	-Localizaciones del juego: Español-Inglés-Alemán.
+
+--------------------------------------->>Posible
+
+En duda>>
+
+	-Un personaje orientado al daño fisico(warrior), otro personaje orientado a daño magico(caster).
+
+	
+
+--------------------------------------->>En duda
+
+Imposible>>
+
+	-AccuWeather: Añadir un filtro de lluvia si en la localizacion actual esta llviendo.
+
+	
+
+--------------------------------------->>Imposible
+
+SERGIO>>
+		
+	-Originalidad, Ideas nuevas, un buen juego no novedoso es una shit.
+
+--------------------------------------->>SERGIO
+
+JAVI>>
+		
+	-Originalidad, Historia, funcionalidad.
+
+--------------------------------------->>JAVI
